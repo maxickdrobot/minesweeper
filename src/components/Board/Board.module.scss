@@ -1,0 +1,10 @@
+.board {
+  margin: 10px;
+  color: black;
+  border: 15px solid rgb(122, 68, 31);
+  box-shadow: 0 0 15px 5px rgba(0, 0, 0, 0.5);
+}
+
+.row {
+  display: flex;
+}

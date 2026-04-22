@@ -1,0 +1,13 @@
+@use "sass:color";
+
+$primary-grass-color: #579130;
+$secondary-grass-color: color.adjust($primary-grass-color, $lightness: -7%);
+$primary-sand-color: #dabb82;
+$secondary-sand-color: color.adjust($primary-sand-color, $lightness: -7%);
+
+$accent-color: $primary-grass-color;
+
+$light-color: #ffffff;
+
+$cell-size: 40px;
+$border-radius: 8px;

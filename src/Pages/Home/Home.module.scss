@@ -1,0 +1,12 @@
+@use "../../styles/variables";
+.appTitle {
+  margin: 20px;
+}
+
+.link {
+  display: block;
+  margin-bottom: 15px;
+  padding: 10px 15px;
+  color: white;
+  background-color: variables.$accent-color;
+}
