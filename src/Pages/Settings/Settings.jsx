@@ -1,45 +1,72 @@
-import { useContext } from "react";
-import { GameContext } from "../../contexts/GameContext";
+import { useDispatch, useSelector } from "react-redux";
+import { setSettings, startGame } from "../../store/gameSlice";
 import { Link } from "react-router-dom";
 import styles from "./Settings.module.scss";
 import Input from "../../components/Input/Input";
+import { useState } from "react";
+import Button from "../../components/Button/Button";
 
 const Settings = () => {
-  const { ROWS, COLS, MINES, setRows, setCols, setMines } = useContext(GameContext);
+  const dispatch = useDispatch();
+
+  const { rows, cols, mines } = useSelector(state => state.game);
+
+  const [localRows, setLocalRows] = useState(rows);
+  const [localCols, setLocalCols] = useState(cols);
+  const [localMines, setLocalMines] = useState(mines);
+
+  const applySettings = () => {
+    const maxMines = localRows * localCols - 1;
+
+    if (localMines > maxMines) {
+      alert("Занадто багато мін!");
+      return;
+    }
+
+    dispatch(setSettings({
+      rows: localRows,
+      cols: localCols,
+      mines: localMines
+    }));
+
+    dispatch(startGame());
+  };
 
   return (
     <div className={styles.settings}>
       <Link className="backBtn" to="/">
         {"<-- Назад"}
       </Link>
+
       <h2>Налаштування</h2>
 
       <Input
-        label="Рядки: "
+        label="Рядки:"
         type="number"
-        value={ROWS}
-        onChange={(e) => setRows(+e.target.value)}
-        placeholder="Rows"
+        value={localRows}
+        onChange={(e) => setLocalRows(+e.target.value)}
         max={100}
       />
 
       <Input
-        label="Колонки: "
+        label="Колонки:"
         type="number"
-        value={COLS}
-        onChange={(e) => setCols(+e.target.value)}
-        placeholder="Cols"
+        value={localCols}
+        onChange={(e) => setLocalCols(+e.target.value)}
         max={100}
       />
 
       <Input
-        label="Міни: "
+        label="Міни:"
         type="number"
-        value={MINES}
-        onChange={(e) => setMines(+e.target.value)}
-        placeholder="Mines"
+        value={localMines}
+        onChange={(e) => setLocalMines(+e.target.value)}
         max={2000}
       />
+
+      <Button onClick={applySettings}>
+        Застосувати
+      </Button>
     </div>
   );
 };
