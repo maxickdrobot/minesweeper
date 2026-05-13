@@ -1,4 +1,18 @@
 @use "../../styles/variables";
+
+.wrapper {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 90%;
+  max-width: 400px;
+
+  .exit {
+    background-color: red;
+  }
+}
+
 .appTitle {
   margin: 20px;
 }
@@ -9,4 +23,8 @@
   padding: 10px 15px;
   color: white;
   background-color: variables.$accent-color;
+}
+
+.greeting {
+  margin-bottom: 15px;
 }

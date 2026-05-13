@@ -1,6 +1,5 @@
 import { Route, Routes } from "react-router-dom";
 import "./App.scss";
-import Game from "./components/Game/Game";
 import Home from "./Pages/Home/Home";
 import Settings from "./Pages/Settings/Settings";
 import NotFoundPage from "./Pages/NotFoundPage/NotFoundPage";
