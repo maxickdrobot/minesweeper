@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
-import { startGame, openCell, toggleFlag } from "../../store/gameSlice";
+import { startGame, toggleFlag } from "../../store/gameSlice";
 import styles from "./Game.module.scss"
 import Board from "../Board/Board";
 import Button from "../Button/Button";
